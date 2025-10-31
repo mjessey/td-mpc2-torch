@@ -6,6 +6,7 @@ class Config(BaseModel):
     buffer_size: PositiveInt
     min_history: PositiveInt
     batch_size: PositiveInt
+    horizon: PositiveInt
 
 
 def read_cfg(cfg_path: str | None = None) -> Config:

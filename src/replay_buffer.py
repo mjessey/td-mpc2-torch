@@ -2,7 +2,8 @@ import torch
 from tensordict import TensorDict
 import torchrl.data.replay_buffers as rb
 
-from cfg import Config
+from .cfg import Config
+
 
 class ReplayBuffer:
     def __init__(self, cfg: Config) -> None:
@@ -14,14 +15,15 @@ class ReplayBuffer:
             traj_key="episode",
             truncated_key=None,
             strict_length=True,
-            cache_values=True
+            cache_values=True,
         )
         self._buffer = rb.ReplayBuffer(
-            storage=rb.LazyTensorStorage(self._capacity, device="cpu"),
+            storage=rb.LazyTensorStorage(self._capacity, device=torch.device("cpu")),
             sampler=self._sampler,
             pin_memory=False,
             prefetch=0,
-            batch_size=cfg.batch_size * (cfg.horizon + 1))
+            batch_size=cfg.batch_size * (cfg.horizon + 1),
+        )
 
     @property
     def capacity(self) -> int:

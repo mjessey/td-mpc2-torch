@@ -2,3 +2,6 @@
 buffer_size = 1_000_000
 batch_size = 256
 min_history = 100_000
+
+# Planning
+horizon = 3
