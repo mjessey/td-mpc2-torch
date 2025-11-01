@@ -1,4 +1,6 @@
-# TD-MPC2 Replay Buffer
+# TD-MPC2 Robot Soccer Agent
+
+## TD-MPC2 Replay Buffer
 
 A PyTorch implementation of a replay buffer for TD-MPC2 (Temporal Difference Model Predictive Control) for training robot soccer agents.
 
